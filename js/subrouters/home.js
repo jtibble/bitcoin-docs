@@ -1,8 +1,7 @@
 /**
  * Subrouter for Home
  */
-define( ['text!templates/headers/headerHomeTemplate.html', 
-		 'plugins/backbone/backbone.subroute'], 
+define( ['plugins/backbone/backbone.subroute'], 
 	   function(headerTemplate) {
 		
 		return Backbone.SubRoute.extend({

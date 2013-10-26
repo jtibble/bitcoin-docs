@@ -9,12 +9,6 @@ define(	'router', ['jquery', 'backbone', 'underscore'], function() {
 			// NOTE: Only edit this if your screen (or set of screens) does not have an existing subrouter!
 			routes : {
 				'home': 	'homeSubrouter',
-				'wedding':	'weddingSubrouter',
-				'bitcoin':	'bitcoinSubrouter',
-				'umich':	'umichSubrouter',
-				'robotics': 'roboticsSubrouter',
-				'graphics': 'graphicsSubrouter',
-			
 				'*actions' : 	'unknownSubroute'
 			},
 			
@@ -47,21 +41,6 @@ define(	'router', ['jquery', 'backbone', 'underscore'], function() {
 			
 			homeSubrouter : function(subroute) {
 				this.loadSubrouter( 'home' );
-			},
-			weddingSubrouter : function(subroute) {
-				this.loadSubrouter( 'wedding' );
-			},
-			bitcoinSubrouter : function(subroute) {
-				this.loadSubrouter( 'bitcoin' );
-			},
-			umichSubrouter : function(subroute) {
-				this.loadSubrouter( 'umich' );
-			},
-			roboticsSubrouter : function(subroute) {
-				this.loadSubrouter( 'robotics' );
-			},
-			graphicsSubrouter: function(subroute) {
-				this.loadSubrouter( 'graphics' );
 			},
 			
 			loadSubrouter : function( subrouterName ){
