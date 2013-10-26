@@ -10,14 +10,14 @@ define( ['plugins/backbone/backbone.subroute'],
 				'*actions':	'runModule'
 			},
 			emptyRoute: function(){
-				this.runModule( 'home');
+				this.runModule( 'api');
 			},
 			runModule: function( module ){
-				if( module !== 'home' ){
-					module = 'home/' + module;
+				if( module !== 'api' ){
+					module = 'api/' + module;
 				}
                 
-                UTIL.changeNavbar( 'home' );
+                UTIL.changeNavbar( 'api' );
 				UTIL.changeMainContent( module );
 			}
 		});	

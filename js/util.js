@@ -18,6 +18,13 @@ define([], function(){
 			throw e.message;	
 		}
 	};
+    
+    UTIL.changeNavbar = function( route ){
+        require(['text!templates/navbar.html'], function(template){
+            var renderedNavbar = _.template( template, {model: {route: route}} );
+            $('#navbar').html( renderedNavbar );
+        });
+    };
 	
 	return UTIL;
 });

@@ -1,4 +1,4 @@
-define(['text!templates/home/home.html'], function(template){
+define(['text!templates/home/about.html'], function(template){
 	
 	return {
 		run: function( container ){

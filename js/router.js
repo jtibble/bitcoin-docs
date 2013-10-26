@@ -9,6 +9,7 @@ define(	'router', ['jquery', 'backbone', 'underscore'], function() {
 			// NOTE: Only edit this if your screen (or set of screens) does not have an existing subrouter!
 			routes : {
 				'home': 	'homeSubrouter',
+                'api':      'apiSubrouter',
 				'*actions' : 	'unknownSubroute'
 			},
 			
@@ -41,6 +42,9 @@ define(	'router', ['jquery', 'backbone', 'underscore'], function() {
 			
 			homeSubrouter : function(subroute) {
 				this.loadSubrouter( 'home' );
+			},
+			apiSubrouter : function(subroute) {
+				this.loadSubrouter( 'api' );
 			},
 			
 			loadSubrouter : function( subrouterName ){
