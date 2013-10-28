@@ -46,6 +46,9 @@ define(	'router', ['jquery', 'backbone', 'underscore'], function() {
 			apiSubrouter : function(subroute) {
 				this.loadSubrouter( 'api' );
 			},
+			tutorialsSubrouter : function(subroute) {
+				this.loadSubrouter( 'tutorials' );
+			},
 			
 			loadSubrouter : function( subrouterName ){
 				if( UTIL.Subrouters[ subrouterName ] ){
