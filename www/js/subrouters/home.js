@@ -17,7 +17,7 @@ define( ['plugins/backbone/backbone.subroute'],
 					module = 'home/' + module;
 				}
                 
-                UTIL.changeNavbar( 'home' );
+                UTIL.renderNavbar();
 				UTIL.changeMainContent( module );
 			}
 		});	

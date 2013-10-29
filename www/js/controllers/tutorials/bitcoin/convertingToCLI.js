@@ -1,4 +1,4 @@
-define(['text!templates/api.html'], function(template){
+define(['text!templates/tutorials/bitcoin/convertingToCLI.html'], function(template){
 	
 	return {
 		run: function( container ){

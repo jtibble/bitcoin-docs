@@ -13,15 +13,23 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="#api">API Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bitcoin Documentation <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#api">Documentation Home</a></li>
+          <li><hr></li>
+          <li><a href="#api/bitcoin/core">Core Protocol</a></li>
+          <li><a href="#api/bitcoin/rpc">RPCs</a></li>
+        </ul>
+      </li>
     </ul>
     <ul class="nav navbar-nav">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bitcoin <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a href="#api/bitcoin">Overview</a></li>
+          <li><a href="#tutorials">Tutorials Home</a></li>
           <li><hr></li>
-          <li><a href="#api/bitcoin/core">Core Protocol</a></li>
+          <li><a href="#tutorials/bitcoin/convertingToCLI">Moving to Bitcoin-CLI</a></li>
         </ul>
       </li>
     </ul>

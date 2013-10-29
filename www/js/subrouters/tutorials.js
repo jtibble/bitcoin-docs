@@ -10,11 +10,11 @@ define( ['plugins/backbone/backbone.subroute'],
 				'*actions':	'runModule'
 			},
 			emptyRoute: function(){
-				this.runModule( 'api');
+				this.runModule( 'tutorials');
 			},
 			runModule: function( module ){
-				if( module !== 'api' ){
-					module = 'api/' + module;
+				if( module !== 'tutorials' ){
+					module = 'tutorials/' + module;
 				}
                 
                 UTIL.renderNavbar();

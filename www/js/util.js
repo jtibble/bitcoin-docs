@@ -19,10 +19,9 @@ define([], function(){
 		}
 	};
     
-    UTIL.changeNavbar = function( route ){
+    UTIL.renderNavbar = function(){
         require(['text!templates/navbar.html'], function(template){
-            var renderedNavbar = _.template( template, {model: {route: route}} );
-            $('#navbar').html( renderedNavbar );
+            $('#navbar').html( template );
         });
     };
 	

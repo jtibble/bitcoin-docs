@@ -1,4 +1,4 @@
-define(['text!templates/tutorials/tutorials.html'], function(template){
+define(['text!templates/api/bitcoin/rpc.html'], function(template){
 	
 	return {
 		run: function( container ){

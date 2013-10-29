@@ -10,6 +10,7 @@ define(	'router', ['jquery', 'backbone', 'underscore'], function() {
 			routes : {
 				'home': 	'homeSubrouter',
                 'api':      'apiSubrouter',
+                'tutorials':      'tutorialsSubrouter',
 				'*actions' : 	'unknownSubroute'
 			},
 			
