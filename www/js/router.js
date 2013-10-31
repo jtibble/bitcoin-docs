@@ -22,15 +22,18 @@ define(	'router', ['jquery', 'backbone', 'underscore'], function() {
 				
 				var subrouter = route.split('/')[0];
 									
-                // Try to run the route as a controller
-                //  ...failing that, show the boring HTML itself
-                require(['controllers/'+route], function(controller){
-                    controller.run('.main-content');
-                }, function(err){
-                    console.log('Tried and failed to run controller without subrouter. Trying to load template');
-                    require(['text!templates/'+ route + '.html'], function( template ){
+                // Try to load the route as a template
+                //  ...failing that, try to load it as a controller
+                require(['text!templates/'+ route + '.html'], function( template ){
                         UTIL.renderNavbar();
-                        $('.main-content').html( template ); 
+                        $('.main-content').html( template );
+                }, function( err ){
+                    console.log('Tried and failed to load+render template. Attempting to load controller by that name.');
+                    require(['controllers/'+route], function(controller){
+                        controller.run('.main-content');
+                    }, function(err){
+                        console.log('Failed. Giving up and going home.');
+                	   window.Router.navigate('home', {trigger: true});
                     });
                 });
 				
