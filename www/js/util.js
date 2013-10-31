@@ -21,7 +21,68 @@ define([], function(){
     
     UTIL.renderNavbar = function(){
         require(['text!templates/navbar.html'], function(template){
-            $('#navbar').html( template );
+            
+            navbarConfig = {
+                'header': {
+                    'type': 'link',
+                    'text': 'CoinDocs',
+                    'url': '#'
+                },
+                'body': [
+                    {
+                        'type': 'dropdown',
+                        'text': 'Bitcoin Documentation',
+                        'items': [
+                            {
+                                'type': 'link', 
+                                'text': 'Documentation Home',
+                                'url': '#api',
+                            },
+                            {
+                                'type': 'spacer'
+                            },
+                            {
+                                'type': 'link', 
+                                'text': 'Core Protocol',
+                                'url': '#api/bitcoin/core',
+                            },
+                            {
+                                'type': 'link', 
+                                'text': 'RPCs',
+                                'url': '#api/bitcoin/rpc',
+                            }
+                        ]
+                    },
+                    {
+                        'type': 'dropdown',
+                        'text': 'Tutorials',
+                        'items': [
+                            {
+                                'type': 'link', 
+                                'text': 'Tutorials Home',
+                                'url': '#tutorials ',
+                            },
+                            {
+                                'type': 'spacer'
+                            },
+                            {
+                                'type': 'link', 
+                                'text': 'Moving to Bitcoin-CLI',
+                                'url': '#tutorials/bitcoin/convertingToCLI',
+                            }
+                        ]
+                    }
+                ],
+                'footer': {
+                    'type': 'link',
+                    'text': 'About CoinDocs',
+                    'url': '#home/about'
+                }
+            };
+            
+            var renderedNavbar = _.template( template, {model: navbarConfig} );
+            
+            $('#navbar').html( renderedNavbar );
         });
     };
 	

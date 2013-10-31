@@ -8,14 +8,12 @@ define(	'router', ['jquery', 'backbone', 'underscore'], function() {
 			// Routes evaluated most-to-least specific, with the last route becoming default
 			// NOTE: Only edit this if your screen (or set of screens) does not have an existing subrouter!
 			routes : {
-				'home': 	'homeSubrouter',
-                'api':      'apiSubrouter',
-                'tutorials':      'tutorialsSubrouter',
-				'*actions' : 	'unknownSubroute'
+				'*actions' : 	'allRoutes'
 			},
 			
-			unknownSubroute : function( route ){
+			allRoutes : function( route ){
 				
+                // If supplied with empty route, go home
 				if( !route ){
 					console.log('Empty route, redirecting to home');
                 	window.Router.navigate('home', {trigger: true});
@@ -23,44 +21,22 @@ define(	'router', ['jquery', 'backbone', 'underscore'], function() {
 				}
 				
 				var subrouter = route.split('/')[0];
-				
-				if( this.routes[ subrouter ] ){
-					console.log('Unknown route \'' + route + '\', attempting to load subrouter');
-					this.loadSubrouter( subrouter );
-				} else {
-					
-					try{
-						require(['controllers/'+route], function(controller){
-							controller.run('.main-content');
-						});
-					} catch(e){
-						console.log('Tried and failed to run controller without subrouter. Navigating home');
-						window.Router.navigate( 'home', {trigger: true} );
-					}
-				}
-				
-			},
-			
-			homeSubrouter : function(subroute) {
-				this.loadSubrouter( 'home' );
-			},
-			apiSubrouter : function(subroute) {
-				this.loadSubrouter( 'api' );
-			},
-			tutorialsSubrouter : function(subroute) {
-				this.loadSubrouter( 'tutorials' );
-			},
-			
-			loadSubrouter : function( subrouterName ){
-				if( UTIL.Subrouters[ subrouterName ] ){
-					console.log('No subrouter found by this name');
-					return;
-				}
-				
-                require([ 'subrouters/' + subrouterName ], function( subrouter ){
-					console.log( 'Subrouter \'' + subrouterName + '\' loaded' );
-                    UTIL.Subrouters[ subrouterName ] = new subrouter( subrouterName );
+									
+                // Try to load the route as a template
+                //  ...failing that, try to load it as a controller
+                require(['text!templates/'+ route + '.html'], function( template ){
+                        UTIL.renderNavbar();
+                        $('.main-content').html( template );
+                }, function( err ){
+                    console.log('Tried and failed to load+render template. Attempting to load controller by that name.');
+                    require(['controllers/'+route], function(controller){
+                        controller.run('.main-content');
+                    }, function(err){
+                        console.log('Failed. Giving up and going home.');
+                	   window.Router.navigate('home', {trigger: true});
+                    });
                 });
+				
 			}
 		});
 	
