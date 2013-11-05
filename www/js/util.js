@@ -39,9 +39,6 @@ define([], function(){
                                 'url': '#api',
                             },
                             {
-                                'type': 'spacer'
-                            },
-                            {
                                 'type': 'link', 
                                 'text': 'Core Protocol',
                                 'url': '#api/bitcoin/core',
@@ -61,9 +58,6 @@ define([], function(){
                                 'type': 'link', 
                                 'text': 'Tutorials Home',
                                 'url': '#tutorials ',
-                            },
-                            {
-                                'type': 'spacer'
                             },
                             {
                                 'type': 'link', 
